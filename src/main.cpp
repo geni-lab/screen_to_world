@@ -96,6 +96,8 @@ UserList coordCallbackMain(const UserListConstPtr& msg)
 
 void coordCallbackFace(const UserListConstPtr& msg)
 {
+  std::cerr << "coordCallbackFace begin..." << std::endl;
+
   UserList outMsg = coordCallbackMain(msg);
 
   coordPublishFace->publish(outMsg);
@@ -126,7 +128,8 @@ void coordCallbackFace(const UserListConstPtr& msg)
   }
   
   coordPublishPersonIDs->publish(user_list_msg);
-  
+
+  std::cerr << "coordCallbackFace done..." << std::endl;  
 }
 
 void coordCallbackSaliency(const UserListConstPtr& msg)
